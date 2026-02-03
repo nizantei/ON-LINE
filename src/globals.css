@@ -1,0 +1,155 @@
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --amber: #ce923a;
+  --purple: #989ad5;
+  --blue: #9cdce5;
+  --black: #0d0d0d;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+body {
+  font-family: 'Share Tech Mono', 'Courier New', monospace;
+  background-color: #1a1a1a;
+  color: var(--amber);
+  -webkit-font-smoothing: none;
+  -moz-osx-font-smoothing: grayscale;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-shadow: 0 0 5px rgba(223, 154, 64, 0.8), 0 0 10px rgba(223, 154, 64, 0.4);
+  box-shadow: inset 0 0 100px rgba(0,0,0,0.9);
+}
+
+* {
+  text-shadow: 0 0 5px rgba(223, 154, 64, 0.8), 0 0 10px rgba(223, 154, 64, 0.4);
+}
+
+/* Global CRT vignette overlay */
+body::before {
+  content: '';
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: radial-gradient(circle, rgba(0,0,0,0) 60%, rgba(0,0,0,0.6) 100%);
+  z-index: 2147483646;
+  pointer-events: none;
+}
+
+/* Global CRT scanlines overlay - always on top */
+body::after {
+  content: '';
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+  z-index: 2147483647;
+  background-size: 100% 2px, 3px 100%;
+  pointer-events: none;
+}
+
+/* Scrollbar */
+.scrollbar-thin::-webkit-scrollbar {
+  width: 6px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-track {
+  background: var(--black);
+  border-left: 1px solid rgba(206, 146, 58, 0.2);
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background: #ce923a;
+  box-shadow: 0 0 4px rgba(206, 146, 58, 0.5);
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb:hover {
+  background: #e5a544;
+}
+
+/* Button hover - inverted */
+button {
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+button:hover:not(.no-hover-invert) {
+  background-color: var(--amber) !important;
+  color: var(--black) !important;
+  border-color: var(--amber) !important;
+  text-shadow: none !important;
+}
+
+/* Focus */
+*:focus {
+  outline: 1px solid var(--amber);
+  outline-offset: 2px;
+}
+
+*:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* Headlines uppercase */
+h1, h2, h3, h4, h5, h6 {
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+/* Input */
+input, textarea {
+  font-family: 'Share Tech Mono', monospace;
+  background: var(--black);
+  border: 1px solid var(--amber);
+  color: var(--amber);
+}
+
+input:focus, textarea:focus {
+  border-color: var(--amber);
+  box-shadow: 0 0 10px rgba(206, 146, 58, 0.3);
+}
+
+/* Selection */
+::selection {
+  background: var(--amber);
+  color: var(--black);
+  text-shadow: none;
+}
+
+* {
+  scroll-behavior: auto !important;
+}
+
+/* Context-specific glows */
+.glow-amber {
+  text-shadow: 0 0 4px rgba(206, 146, 58, 0.6);
+}
+
+.glow-purple {
+  text-shadow: 0 0 4px rgba(152, 154, 213, 0.6);
+}
+
+.glow-blue {
+  text-shadow: 0 0 4px rgba(156, 220, 229, 0.6);
+}
