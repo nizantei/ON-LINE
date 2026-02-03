@@ -5,8 +5,8 @@ import path from 'path'
 // https://vite.dev/config/
 export default defineConfig({
   // Base path for deployment - set to '/' for local dev or custom domain
-  // For GitHub Pages at username.github.io/repo-name, this will be set automatically
-  base: process.env.GITHUB_ACTIONS ? '/' : '/',
+  // For GitHub Pages at username.github.io/ON-LINE, use /ON-LINE/
+  base: process.env.GITHUB_ACTIONS ? '/ON-LINE/' : '/',
 
   logLevel: 'error', // Suppress warnings, only show errors
 
